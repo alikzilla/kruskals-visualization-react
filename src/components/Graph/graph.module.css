@@ -26,6 +26,8 @@
   border-radius: 10px;
   padding: 10px 20px;
   transition: 0,3s;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .button:hover {

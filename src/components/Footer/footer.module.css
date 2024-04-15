@@ -5,4 +5,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 30px;
+}
+
+.link {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  font-size: 22px;
+  position: relative;
+}
+
+.link::after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 0px;
+  background-color: black;
+  transition: all 0.3s ease-in-out;
+  bottom: 1px;
+}
+
+.link:hover::after {
+  width: 100%;
 }
