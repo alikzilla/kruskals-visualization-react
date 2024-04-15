@@ -47,36 +47,36 @@ function GraphVisualization() {
     const numNodes = Math.floor(Math.random() * 10) + 5; // Random number of nodes between 5 and 14
     const nodes = [];
     for (let i = 1; i <= numNodes; i++) {
-      nodes.push({ id: i, label: `${i}`, title: `node ${i} tooltip text` });
+        nodes.push({ id: i, label: `${i}`, title: `node ${i} tooltip text` });
     }
-  
+
     const edges = [];
     const visitedEdges = new Set(); // Keep track of visited edges
-  
+
     for (let i = 1; i <= numNodes; i++) {
-      const from = i;
-      let to;
-      do {
-        to = Math.floor(Math.random() * numNodes) + 1;
-      } while (to === from || visitedEdges.has(`${from}-${to}`) || visitedEdges.has(`${to}-${from}`));
-      
-      visitedEdges.add(`${from}-${to}`);
-      visitedEdges.add(`${to}-${from}`);
-      
-      const weight = Math.floor(Math.random() * 10) + 1; // Random weight between 1 and 10
-      edges.push({ from, to, label: `${weight}` }); // Adding edge from A to B
-      edges.push({ from: to, to: from, label: `${weight}` }); // Adding edge from B to A (undirected)
+        const from = i;
+        let to;
+        do {
+            to = Math.floor(Math.random() * numNodes) + 1;
+        } while (to === from || visitedEdges.has(`${from}-${to}`) || visitedEdges.has(`${to}-${from}`));
+
+        visitedEdges.add(`${from}-${to}`);
+        visitedEdges.add(`${to}-${from}`);
+
+        const weight = Math.floor(Math.random() * 10) + 1; // Random weight between 1 and 10
+        edges.push({ from, to, label: `${weight}` }); // Adding edge from A to B
+        edges.push({ from: to, to: from, label: `${weight}` }); // Adding edge from B to A (undirected)
     }
-  
+
     // Connect the last node to one of the previous nodes to create a cycle
     const lastNodeId = numNodes;
     const previousNodeId = Math.floor(Math.random() * (numNodes - 1)) + 1;
     const weight = Math.floor(Math.random() * 10) + 1; // Random weight between 1 and 10
     edges.push({ from: lastNodeId, to: previousNodeId, label: `${weight}` }); // Add edge to create a cycle
     edges.push({ from: previousNodeId, to: lastNodeId, label: `${weight}` }); // Add edge to create a cycle (undirected)
-  
+
     return { nodes, edges };
-  }
+}
 
   function findMST() {
     // Compute MST using Kruskal's algorithm
