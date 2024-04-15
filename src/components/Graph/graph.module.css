@@ -4,13 +4,15 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
+  
 }
 
 .graphs {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .graph {
@@ -38,5 +40,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
